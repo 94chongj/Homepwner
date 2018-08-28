@@ -11,6 +11,7 @@
 		AB2F0FC82135BBB6000C1A3F /* DateCreatedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2F0FC72135BBB6000C1A3F /* DateCreatedViewController.swift */; };
 		AB6CCA152134783700137C9F /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6CCA142134783700137C9F /* ItemCell.swift */; };
 		AB6CCA172134A42600137C9F /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6CCA162134A42600137C9F /* DetailViewController.swift */; };
+		ABCF98832135D2CA0081A702 /* ImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCF98822135D2CA0081A702 /* ImageStore.swift */; };
 		ABF78BD3212F6554005FBBAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF78BD2212F6554005FBBAE /* AppDelegate.swift */; };
 		ABF78BD8212F6554005FBBAE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABF78BD6212F6554005FBBAE /* Main.storyboard */; };
 		ABF78BDA212F6555005FBBAE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABF78BD9212F6555005FBBAE /* Assets.xcassets */; };
@@ -44,6 +45,7 @@
 		AB2F0FC72135BBB6000C1A3F /* DateCreatedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCreatedViewController.swift; sourceTree = "<group>"; };
 		AB6CCA142134783700137C9F /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		AB6CCA162134A42600137C9F /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		ABCF98822135D2CA0081A702 /* ImageStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStore.swift; sourceTree = "<group>"; };
 		ABF78BCF212F6554005FBBAE /* Homepwner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Homepwner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABF78BD2212F6554005FBBAE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ABF78BD7212F6554005FBBAE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 				ABF78C05212F67A3005FBBAE /* Item.swift */,
 				ABF78C07212F6B0C005FBBAE /* ItemStore.swift */,
 				AB6CCA142134783700137C9F /* ItemCell.swift */,
+				ABCF98822135D2CA0081A702 /* ImageStore.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -303,6 +306,7 @@
 				ABF78C06212F67A3005FBBAE /* Item.swift in Sources */,
 				ABF78C08212F6B0C005FBBAE /* ItemStore.swift in Sources */,
 				AB6CCA172134A42600137C9F /* DetailViewController.swift in Sources */,
+				ABCF98832135D2CA0081A702 /* ImageStore.swift in Sources */,
 				ABF78BD3212F6554005FBBAE /* AppDelegate.swift in Sources */,
 				AB6CCA152134783700137C9F /* ItemCell.swift in Sources */,
 				AB2F0FC82135BBB6000C1A3F /* DateCreatedViewController.swift in Sources */,
