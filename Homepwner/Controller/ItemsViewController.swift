@@ -14,7 +14,7 @@ class ItemsViewController: UITableViewController {
     
     /*Button Stuff ~~~~~~~~~~~~~~~~~~~~~~~~~~*/
     
-    @IBAction func addNewItem(_ sender: UIButton) {
+    @IBAction func addNewItem(_ sender: UIBarButtonItem) {
         //Create a new item and add it to the store
         let newItem = itemStore.createItem()
         
@@ -26,22 +26,6 @@ class ItemsViewController: UITableViewController {
         }
     }
     
-    @IBAction func toggleEditingMode(_ sender: UIButton) {
-        if isEditing {
-            //Change text of button to inform user of state
-            sender.setTitle("Edit", for: .normal)
-            
-            //Turn off editing mode
-            setEditing(false, animated: true)
-        }
-        else {
-            //Change text of button to inform user of state
-            sender.setTitle("Done", for:.normal)
-            
-            //Enter editing mode
-            setEditing(true, animated: true)
-        }
-    }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
@@ -139,14 +123,13 @@ class ItemsViewController: UITableViewController {
         return cell
         */
         
-        //silver challenge test solution
-        print(indexPath.row)
-        print(itemStore.allItems.count)
+        
         if indexPath.row < itemStore.allItems.count {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as! ItemCell
             let item = itemStore.allItems[indexPath.row]
-            cell.textLabel?.text = item.name
-            cell.detailTextLabel?.text = "$\(item.valueInDollars)"
+            cell.nameLabel.text = item.name
+            cell.serialNumberLabel.text = item.serialNumber
+            cell.valueLabel.text = "$\(item.valueInDollars)"
             return cell
         }
         else {
@@ -176,14 +159,35 @@ class ItemsViewController: UITableViewController {
         return cell*/
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case "showItem":
+            if let row = tableView.indexPathForSelectedRow?.row {
+                let item = itemStore.allItems[row]
+                let detailViewController = segue.destination as! DetailViewController
+                detailViewController.item = item
+            }
+        default:
+            preconditionFailure("Unexpected segue identifier")
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+    
+    //programmatically adds the left bar button item
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        navigationItem.leftBarButtonItem = editButtonItem
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        //Get height of the status bar
-        let statusBarHeight = UIApplication.shared.statusBarFrame.height
-        
-        let insets = UIEdgeInsets(top: statusBarHeight, left: 0, bottom: 0, right: 0)
-        tableView.contentInset = insets
-        tableView.scrollIndicatorInsets = insets
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 65
     }
     
 }
