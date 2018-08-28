@@ -11,6 +11,9 @@ import UIKit
 class DetailViewController: UIViewController, UITextFieldDelegate {
 
     
+    @IBOutlet var changeDateButton: UIButton!
+    
+    
     @IBOutlet var nameField: UITextField!
     
     
@@ -51,6 +54,16 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         //checks to see what is first responder then dismisses keyboard
         textField.resignFirstResponder()
         return true
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case "changeDate"?:
+            let dateCreatedViewController = segue.destination as! DateCreatedViewController
+            dateCreatedViewController.item = item
+        default:
+            preconditionFailure("Unexpected segue identifier.")
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
